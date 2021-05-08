@@ -1,0 +1,92 @@
+.lrn.lrn_widget.lrn_custom {
+	font-size: 20px;
+}
+
+.lrn.lrn_widget.lrn_custom input {
+	padding: 7px;
+}
+
+.lrn.lrn_widget.lrn_custom .row-valid > td {
+	background-color: #E7F4E1;
+}
+.lrn.lrn_widget.lrn_custom .row-invalid > td {
+	background-color: #FBDDDD;
+}
+.lrn.lrn_widget.lrn_custom .btn-option {
+	width:100%;
+}
+.lrn.lrn_widget.lrn_custom .table td {
+	padding:0;
+	text-align: center;
+}
+
+.lrn.lrn_widget.lrn_custom .table-header {
+	font-weight: bold;
+	text-align: center;
+}
+
+#question_input {
+  margin-top: 5px;
+}
+
+/*ting input field red or green for incorrect/correct*/
+#question_input.invalid {
+  background-color: #FBDDDD;
+}
+
+#question_input.valid {
+  background-color: #E7F4E1;
+}
+
+
+/* add your own CSS here */
+/* set up formatting for numberpad */
+.grid-container {
+	display: grid;
+
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto auto auto;
+
+	min-width: 3em;
+
+	text-align: center;
+}
+
+/* set up formatting for numberpad output */
+.inner-grid-container {
+	display:grid;
+	grid-template-columns: auto auto auto;
+	min-height: 0.5em;
+	font-size: 20px;
+	
+}
+/* set up formatting for numberpad's buttons */
+button{
+	border-right: none;
+    border-bottom: none;
+	border: 0.1em solid #d9d9d9;
+	margin: 0;
+    padding: 0;
+    outline: none;
+	background-color: #fbfbfb;
+	text-align: center;
+	justify-self: stretch;
+	
+
+}
+
+/* set up formatting for #question_input to span whole .grid-contatiner div */
+#question_input {
+	grid-column-start: 1;
+	grid-column-end: 4;
+	display: inline;
+}
+
+
+/* format for when button is pressed */
+.clicked {
+	background-color: teal;
+	color:beige;
+}
+
+
