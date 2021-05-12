@@ -10,7 +10,28 @@ LearnosityAmd.define(['jquery-v1.10.2'], function ($) {
         //
         //Build up the structure you want to use here, and add any event handling you may want to use
         //Set structure for number pad and output
-        $htmlObj = $('<div class="grid-container"><output id="question_input" type="text"><div class="inner-grid-container"><div class="output" id="firstVal"></div><div class="output" id="secondVal"></div><div class="output" id="thirdVal"></div></div></output></output><button class="col col1" value="0">0</button><button class="col col2" value="0">0</button><button class="col col3" value="0">0</button><button class="col col1" value="1">1</button><button class="col col2" value="1">1</button><button class="col col3" value="1">1</button><button class="col col1" value="2">2</button><button class="col col2" value="2">2</button><button class="col col3" value="2">2</button><button class="col col1" value="3">3</button><button class="col col2" value="3">3</button><button class="col col3" value="3">3</button><button class="col col1" value="4">4</button><button class="col col2" value="4">4</button><button class="col col3" value="4">4</button><button class="col col1" value="5">5</button><button class="col col2" value="5">5</button><button class="col col3" value="5">5</button><button class="col col1" value="6">6</button><button class="col col2" value="6">6</button><button class="col col3" value="6">6</button><button class="col col1" value="7">7</button><button class="col col2" value="7">7</button><button class="col col3" value="7">7</button><button class="col col1" value="8">8</button><button class="col col2" value="8">8</button><button class="col col3" value="8">8</button><button class="col col1" value="9">9</button><button class="col col2" value="9">9</button><button class="col col3" value="9">9</button></div></div>');
+        //$htmlObj = $('<div class="grid-container"><output id="question_input" type="text"><div class="inner-grid-container"><div class="output" id="firstVal"></div><div class="output" id="secondVal"></div><div class="output" id="thirdVal"></div></div></output></output><button class="col col1" value="0">0</button><button class="col col2" value="0">0</button><button class="col col3" value="0">0</button><button class="col col1" value="1">1</button><button class="col col2" value="1">1</button><button class="col col3" value="1">1</button><button class="col col1" value="2">2</button><button class="col col2" value="2">2</button><button class="col col3" value="2">2</button><button class="col col1" value="3">3</button><button class="col col2" value="3">3</button><button class="col col3" value="3">3</button><button class="col col1" value="4">4</button><button class="col col2" value="4">4</button><button class="col col3" value="4">4</button><button class="col col1" value="5">5</button><button class="col col2" value="5">5</button><button class="col col3" value="5">5</button><button class="col col1" value="6">6</button><button class="col col2" value="6">6</button><button class="col col3" value="6">6</button><button class="col col1" value="7">7</button><button class="col col2" value="7">7</button><button class="col col3" value="7">7</button><button class="col col1" value="8">8</button><button class="col col2" value="8">8</button><button class="col col3" value="8">8</button><button class="col col1" value="9">9</button><button class="col col2" value="9">9</button><button class="col col3" value="9">9</button></div></div>');
+        $htmlObj = $('<div></div>').addClass('grid-container');
+        $htmlObj.append('<output></output>');
+        $htmlObj.find('output').attr('id', 'question_input').attr('type', 'text');
+        $htmlObj.find('output').append('<div></div>');
+        $htmlObj.find('div').addClass('inner-grid-container');
+        for (var i = 0; i < 3; ++i) {
+            $htmlObj.find('.inner-grid-container').append('<div></div>');
+            $htmlObj.find('.inner-grid-container').find('div').addClass('output');
+            $htmlObj.find('.output').attr('id', function(i) {
+                if (i === 0) { return 'firstVal'; }
+                else if (i === 1) { return 'secondVal';}
+                else { return 'thirdVal'; }
+            });
+        }
+        for (var row = 0; row < 10; ++row) {
+            for (var col = 0; col < 3; ++col) {
+                $htmlObj.filter('.grid-container').append('<button></button>');
+                $htmlObj.find('button').addClass('col').addClass('col'+(col+1)).attr('value', row).text(row);
+            }
+        }
+
         
         //return either as JQuery Element or String of HTML
         return $htmlObj;
