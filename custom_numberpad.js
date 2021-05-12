@@ -10,11 +10,16 @@ LearnosityAmd.define(['jquery-v1.10.2'], function ($) {
         //
         //Build up the structure you want to use here, and add any event handling you may want to use
         //Set structure for number pad and output
+        //Add grid-container div to format div into grids
         $htmlObj = $('<div></div>').addClass('grid-container');
+        //append output to be recognizable and utilize learnosity api
         $htmlObj.append('<output></output>');
+        //find output and add attributes
         $htmlObj.find('output').attr('id', 'question_input').attr('type', 'text');
+        //append .inner-grid-container div wrapper to wrap output
         $htmlObj.find('output').append('<div></div>');
         $htmlObj.find('div').addClass('inner-grid-container');
+        //create the three (3) divs for the output and set id and class via for-loop
         for (var i = 0; i < 3; ++i) {
             $htmlObj.find('.inner-grid-container').append('<div></div>');
             $htmlObj.find('.inner-grid-container').find('div').addClass('output');
@@ -24,14 +29,13 @@ LearnosityAmd.define(['jquery-v1.10.2'], function ($) {
                 else { return 'thirdVal'; }
             });
         }
+        //use for-loop to create numberpad
         for (var row = 0; row < 10; ++row) {
             for (var col = 0; col < 3; ++col) {
                 $htmlObj.filter('.grid-container').append('<button></button>');
                 $htmlObj.find('button').last().addClass('col').addClass('col'+(col+1)).attr('value', row).text(row);
             }
         }
-
-        
         //return either as JQuery Element or String of HTML
         return $htmlObj;
     }
