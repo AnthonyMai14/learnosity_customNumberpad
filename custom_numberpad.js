@@ -28,7 +28,7 @@ LearnosityAmd.define(['jquery-v1.10.2'], function ($) {
         for (var row = 0; row < 10; ++row) {
             for (var col = 0; col < 3; ++col) {
                 $htmlObj.filter('.grid-container').append('<button></button>');
-                $htmlObj.find('button').addClass('col').addClass('col'+(col+1)).attr('value', row).text(row);
+                $htmlObj.find('button').last().addClass('col').addClass('col'+(col+1)).attr('value', row).text(row);
             }
         }
 
